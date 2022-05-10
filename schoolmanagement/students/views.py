@@ -25,6 +25,7 @@ def studentCreate(request):
     return Response(student.data, status=HTTPStatus.CREATED)
 
 #GET STUDENT BY ID:
+@api_view(['GET'])
 def studentById(request, pk):
     student = Student.objects.get(id=pk)
     studentSeria = StudentSerializer(student, many=False)
@@ -32,6 +33,7 @@ def studentById(request, pk):
     return Response(studentSeria.data, status=HTTPStatus.ACCEPTED)
 
 #DELETE STUDENT
+@api_view(['DELETE'])
 def deleteStudent(request, pk):
     student = Student.objects.get(id=pk)
     student.delete()
