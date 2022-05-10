@@ -32,3 +32,4 @@ def createProf(request):
 
     return Response(prof.data, status=HTTPStatus.CREATED)
 
+# DELETE PROF
