@@ -8,6 +8,7 @@ from http import HTTPStatus
 # Create your views here.
 
 #GET ALL PROFS :
+@api_view(['GET'])
 def allProfs(request):
     professors = Professor.objects.all()
     profsSerializers = ProfessorSerializer(professors, many=True)

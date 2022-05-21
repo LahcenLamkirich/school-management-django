@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+
+
 urlpatterns = [
     path('', views.allProfs),
     path('create-prof', views.createProf),
