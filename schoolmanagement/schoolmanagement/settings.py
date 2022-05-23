@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'students.apps.StudentsConfig',
     'professors.apps.ProfessorsConfig',
+    'departements.apps.DepartementsConfig'
     'rest_framework'
 ]
 
