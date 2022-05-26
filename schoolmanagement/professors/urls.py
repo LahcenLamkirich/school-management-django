@@ -3,5 +3,6 @@ from . import views
 urlpatterns = [
     path('', views.profApi),
     path('prof-list', views.allProfs),
-    path('profById/<str:pk>', views.getProfById)
+    path('profById/<str:pk>', views.getProfById),
+    path('delete-prof/<str:pk>', views.deleteProf)
 ]
