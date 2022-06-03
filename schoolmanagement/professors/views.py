@@ -4,3 +4,5 @@ from rest_framework.decorators import api_view
 @api_view(['GET'])
 def profApi(request):
     return Response("Prof Api test")
+
+#GET ALL PROFS :
