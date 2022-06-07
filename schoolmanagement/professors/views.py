@@ -14,3 +14,4 @@ def allProfs(request):
     profsSerializers = ProfessorSerializer(professors, many=True)
 
     return Response(profsSerializers.data, status=HTTPStatus.ACCEPTED)
+
