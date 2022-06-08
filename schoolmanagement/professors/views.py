@@ -15,3 +15,8 @@ def allProfs(request):
 
     return Response(profsSerializers.data, status=HTTPStatus.ACCEPTED)
 
+def getProfById(request, pk):
+    prof = Professor.objects.get(id=pk)
+    profSer = ProfessorSerializer(prof, many=False)
+
+    return Response(profSer.data,status=HTTPStatus.ACCEPTED)
