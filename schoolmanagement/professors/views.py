@@ -16,13 +16,14 @@ def allProfs(request):
     return Response(profsSerializers.data, status=HTTPStatus.ACCEPTED)
 
 #GET PROF BY ID :
+@api_view(['GET'])
 def getProfById(request, pk):
     prof = Professor.objects.get(id=pk)
     profSer = ProfessorSerializer(prof, many=False)
 
     return Response(profSer.data,status=HTTPStatus.ACCEPTED)
 
-
+#POST PROF :
 def createProf(request):
     prof = ProfessorSerializer(data=request.data)
     if prof.is_valid():
