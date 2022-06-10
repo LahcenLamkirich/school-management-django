@@ -24,6 +24,7 @@ def getProfById(request, pk):
     return Response(profSer.data,status=HTTPStatus.ACCEPTED)
 
 #POST PROF :
+@api_view(['POST'])
 def createProf(request):
     prof = ProfessorSerializer(data=request.data)
     if prof.is_valid():
