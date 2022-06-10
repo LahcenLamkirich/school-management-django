@@ -20,3 +20,4 @@ def getProfById(request, pk):
     profSer = ProfessorSerializer(prof, many=False)
 
     return Response(profSer.data,status=HTTPStatus.ACCEPTED)
+
