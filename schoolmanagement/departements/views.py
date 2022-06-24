@@ -5,4 +5,4 @@ from rest_framework.decorators import api_view
 
 @api_view(['GET'])
 def testApi(request):
-    return Response('Hello')
+    return Response('Hello Departement')
