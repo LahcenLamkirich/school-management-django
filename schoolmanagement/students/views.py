@@ -25,9 +25,17 @@ def studentCreate(request):
     return Response(student.data, status=HTTPStatus.CREATED)
 
 #GET STUDENT BY ID:
-def studentById(request, id):
-    student = Student.objects.get(id=id)
+def studentById(request, pk):
+    student = Student.objects.get(id=pk)
     studentSeria = StudentSerializer(student, many=False)
 
-    return Response(studentSeria, status=HTTPStatus.ACCEPTED)
+    return Response(studentSeria.data, status=HTTPStatus.ACCEPTED)
+
+#DELETE STUDENT
+def deleteStudent(request, pk):
+    student = Student.objects.get(id=pk)
+    student.delete()
+
+    return Response("Student deleted successfully !")
+
 
