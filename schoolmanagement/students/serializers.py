@@ -1,8 +1,8 @@
 from rest_framework import serializers
 from .models import Student
 
-
-class StudentSerializer(serializers.Serializer):
+#obliged to do ModelSerializer and not serializer:
+class StudentSerializer(serializers.ModelSerializer):
     first_name = serializers.CharField(max_length=200)
     last_name = serializers.CharField(max_length=200)
     email = serializers.CharField(max_length=200)
