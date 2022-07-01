@@ -6,6 +6,7 @@ from .models import Student
 from .serializers import StudentSerializer
 from http import HTTPStatus
 from django.shortcuts import render
+
 # Create your views here:
 
 # GET ALL THE STUDENTS API :
@@ -42,5 +43,4 @@ def deleteStudent(request, pk):
     student.delete()
 
     return Response("Student deleted successfully !")
-
 
