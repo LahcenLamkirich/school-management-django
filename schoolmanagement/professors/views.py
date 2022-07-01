@@ -19,10 +19,14 @@ def allProfs(request):
 #GET PROF BY ID :
 @api_view(['GET'])
 def getProfById(request, pk):
-    prof = Professor.objects.get(id=pk)
-    profSer = ProfessorSerializer(prof, many=False)
+    try:
+        prof = Professor.objects.get(id=pk)
+        profSer = ProfessorSerializer(prof, many=False)
 
-    return Response(profSer.data,status=HTTPStatus.ACCEPTED)
+        return Response(profSer.data,status=HTTPStatus.ACCEPTED)
+    except Professor.DoesNotExist:
+        return Response('Prof does not exist ')
+
 
 #POST PROF :
 @api_view(['POST'])
@@ -30,7 +34,6 @@ def createProf(request):
     prof = ProfessorSerializer(data=request.data)
     if prof.is_valid():
         prof.save()
-
     return Response(prof.data, status=HTTPStatus.CREATED)
 
 # DELETE PROF
