@@ -37,7 +37,7 @@ def createProf(request):
 @api_view(['DELETE'])
 def deleteProf(request, pk):
     prof = Professor.objects.get(id=pk)
-    if prof.is_valid():
-        prof.delete()
-    return Response('Professor Deleted Succesfully !')
-
+    if prof.delete():
+        return Response('Professor Deleted Succesfully !')
+    else:
+        return Response('Professeur not deleted !!')
