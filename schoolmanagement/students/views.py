@@ -5,7 +5,7 @@ from rest_framework.decorators import api_view
 from .models import Student
 from .serializers import StudentSerializer
 from http import HTTPStatus
-
+from django.shortcuts import render
 # Create your views here:
 
 # GET ALL THE STUDENTS API :
@@ -13,8 +13,11 @@ from http import HTTPStatus
 def studentList(request):
     students = Student.objects.all()
     studentsSerializers = StudentSerializer(students, many=True)
-
-    return Response(studentsSerializers.data)
+    context = {
+        'name': "Lahcen"
+    }
+    return render(request, "students/index.html", context)
+    # return Response(studentsSerializers.data)
 
 #CREATE A STUDENT:
 @api_view(['POST'])
