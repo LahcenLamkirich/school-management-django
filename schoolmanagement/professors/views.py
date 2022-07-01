@@ -11,6 +11,7 @@ from http import HTTPStatus
 @api_view(['GET'])
 def allProfs(request):
     professors = Professor.objects.all()
+    print("Here ")
     profsSerializers = ProfessorSerializer(professors, many=True)
 
     return Response(profsSerializers.data, status=HTTPStatus.ACCEPTED)
