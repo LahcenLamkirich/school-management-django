@@ -34,7 +34,9 @@ def createProf(request):
     prof = ProfessorSerializer(data=request.data)
     if prof.is_valid():
         prof.save()
-    return Response(prof.data, status=HTTPStatus.CREATED)
+        return Response(prof.data, status=HTTPStatus.CREATED)
+    else:
+        return Response('Prof Not created Successfully !')
 
 # DELETE PROF
 @api_view(['DELETE'])
