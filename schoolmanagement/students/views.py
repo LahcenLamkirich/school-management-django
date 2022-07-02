@@ -17,8 +17,8 @@ def studentList(request):
     context = {
         'name': "Lahcen"
     }
-    return render(request, "students/index.html", context)
-    # return Response(studentsSerializers.data)
+    # return render(request, "students/index.html", context)
+    return Response(studentsSerializers.data)
 
 #CREATE A STUDENT:
 @api_view(['POST'])
